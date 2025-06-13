@@ -36,5 +36,5 @@ Ofrecer una solución digital moderna para negocios locales que necesitan gestio
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/alvaroszdev/peluqueria-reservas.git
+git clone https://github.com/alvaroszdev/reservas
 cd peluqueria-reservas
