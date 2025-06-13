@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserva tu cita</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reserva tu cita</h1>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                locale: 'es',
+                dateClick: function (info) {
+                    const fecha = info.dateStr;
+                    const hora = prompt("Introduce la hora (por ejemplo, 10:00):");
+                    const nombre = prompt("Tu nombre:");
+                    const email = prompt("Tu email:");
+
+                    if (hora && nombre && email) {
+                        // Aquí puedes usar fetch para enviar los datos a Django
+                        fetch('/api/reservas/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': getCookie('csrftoken')
+                            },
+                            body: JSON.stringify({
+                                fecha: fecha,
+                                hora: hora,
+                                nombre: nombre,
+                                email: email
+                            })
+                        }).then(res => {
+                            if (res.ok) {
+                                alert("Reserva guardada con éxito.");
+                            } else {
+                                alert("Error al guardar la reserva.");
+                            }
+                        });
+                    }
+                }
+            });
+            calendar.render();
+        });
+
+        // CSRF para Django
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</body>
+</html>

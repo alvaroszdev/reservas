@@ -1,0 +1,162 @@
+/* reservas/static/reservas/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+}
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #c3e6cb;
+}
+.reservation-list {
+    margin-top: 30px;
+}
+.reservation-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.reservation-list th, .reservation-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.reservation-list th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+.reservation-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.reservation-list tr:hover {
+    background-color: #f1f1f1;
+}
+.reservation-list .delete-btn {
+    color: #dc3545;
+    cursor: pointer;
+}
+.reservation-list .delete-btn:hover {
+    text-decoration: underline;
+}
+.reservation-list .edit-btn {
+    color: #007bff;
+    cursor: pointer;
+}
+.reservation-list .edit-btn:hover {
+    text-decoration: underline;
+}
+.reservation-list .status {
+    font-weight: bold;
+}
+.reservation-list .status.pending {
+    color: #ffc107;
+}
+.reservation-list .status.confirmed {
+    color: #28a745;
+}
+.reservation-list .status.cancelled {
+    color: #dc3545;
+}
+.reservation-list .status.completed {
+    color: #17a2b8;
+}
+.reservation-list .status.expired {
+    color: #6c757d;
+}
+.reservation-list .status.pending::before {
+    content: "Pending - ";
+}
+.reservation-list .status.confirmed::before {
+    content: "Confirmed - ";
+}
+.reservation-list .status.cancelled::before {
+    content: "Cancelled - ";
+}
+.reservation-list .status.completed::before {
+    content: "Completed - ";
+}
+.reservation-list .status.expired::before {
+    content: "Expired - ";
+}
+.reservation-list .status.pending::after {
+    content: " (Action Required)";
+}
+.reservation-list .status.confirmed::after {
+    content: " (Ready)";
+}
+.reservation-list .status.cancelled::after {
+    content: " (No Action Needed)";
+}
+.reservation-list .status.completed::after {
+    content: " (Done)";
+}
+.reservation-list .status.expired::after {
+    content: " (No Longer Valid)";
+}
+.reservation-list .status.pending,
+.reservation-list .status.confirmed,
+.reservation-list .status.cancelled,
+.reservation-list .status.completed,
+.reservation-list .status.expired {
+    font-size: 0.9em;
+    text-transform: capitalize;
+}

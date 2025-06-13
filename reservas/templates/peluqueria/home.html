@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Peluquería Bella</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #333; color: white; padding: 1em; text-align: center; }
+    .galeria { display: flex; flex-wrap: wrap; justify-content: center; margin: 2em 0; gap: 1em; }
+    .galeria img { width: 300px; height: auto; border-radius: 10px; }
+    .reserva-btn {
+      display: block;
+      margin: 2em auto;
+      background: #e91e63;
+      color: white;
+      text-decoration: none;
+      padding: 1em 2em;
+      border-radius: 10px;
+      text-align: center;
+      width: fit-content;
+      font-size: 1.2em;
+    }
+    .galeria img {
+      width: 400px;
+      height: auto;
+      border-radius: 10px;
+    }
+    .reserva-btn:hover {
+      background:rgb(181, 51, 247);
+    }
+    footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1em 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Peluquería Bella</h1>
+    <p>Tu estilo, nuestra pasión</p>
+  </header>
+
+  <section class="galeria">
+    <img src="{% static 'img/salonimg-6cuszi-187.webp' %}" alt="">
+    <img src="{% static 'img/salonimg-bdk9mq-187.png' %}" alt="">
+    <img src="{% static 'img/salonimg-wdhzpk-187.webp' %}" alt="">
+  </section>
+
+  <a class="reserva-btn" href="{% url 'calendario' %}">📅 Reservar cita</a>
+
+  <footer>
+  <p>© 2025 Peluquería Bella. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
+
